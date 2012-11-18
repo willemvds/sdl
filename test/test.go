@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
-	"github.com/DeedleFake/sdl"
-	"github.com/DeedleFake/sdl/img"
+	"github.com/willemvds/sdl"
+	"github.com/willemvds/sdl/img"
 	"time"
 )
 

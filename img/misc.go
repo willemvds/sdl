@@ -1,7 +1,7 @@
 package img
 
 import (
-	"github.com/DeedleFake/sdl"
+	"github.com/willemvds/sdl"
 	"unsafe"
 )
 
