@@ -12,29 +12,29 @@ import (
 import "C"
 
 const (
-        MAJOR_VERSION = C.SDL_TTF_MAJOR_VERSION
-        MINOR_VERSION = C.SDL_TTF_MINOR_VERSION
-        PATCHLEVEL    = C.SDL_TTF_PATCHLEVEL
+	MAJOR_VERSION = C.SDL_TTF_MAJOR_VERSION
+	MINOR_VERSION = C.SDL_TTF_MINOR_VERSION
+	PATCHLEVEL    = C.SDL_TTF_PATCHLEVEL
 )
 
 const (
-        UNICODE_BOM_NATIVE = C.UNICODE_BOM_NATIVE
-        UNICODE_BOM_SWAPPED = C.UNICODE_BOM_SWAPPED
+	UNICODE_BOM_NATIVE  = C.UNICODE_BOM_NATIVE
+	UNICODE_BOM_SWAPPED = C.UNICODE_BOM_SWAPPED
 )
 
 const (
-        STYLE_NORMAL = C.TTF_STYLE_NORMAL
-        STYLE_BOLD = C.TTF_STYLE_BOLD
-        STYLE_ITALIC = C.TTF_STYLE_ITALIC
-        STYLE_UNDERLINE = C.TTF_STYLE_UNDERLINE
-        STYLE_STRIKETHROUGH = C.TTF_STYLE_STRIKETHROUGH
+	STYLE_NORMAL        = C.TTF_STYLE_NORMAL
+	STYLE_BOLD          = C.TTF_STYLE_BOLD
+	STYLE_ITALIC        = C.TTF_STYLE_ITALIC
+	STYLE_UNDERLINE     = C.TTF_STYLE_UNDERLINE
+	STYLE_STRIKETHROUGH = C.TTF_STYLE_STRIKETHROUGH
 )
 
 const (
-        HINTING_NORMAL = C.TTF_HINTING_NORMAL
-        HINTING_LIGHT = C.TTF_HINTING_LIGHT
-        HINTING_MONO = C.TTF_HINTING_MONO
-        HINTING_NONE = C.TTF_HINTING_NONE
+	HINTING_NORMAL = C.TTF_HINTING_NORMAL
+	HINTING_LIGHT  = C.TTF_HINTING_LIGHT
+	HINTING_MONO   = C.TTF_HINTING_MONO
+	HINTING_NONE   = C.TTF_HINTING_NONE
 )
 
 type Font struct {
@@ -159,7 +159,7 @@ func (f *Font) RenderTextSolid(text string, fg sdl.Color) (*sdl.Surface, error) 
 
 func (f *Font) RenderUTF8Solid(text string, fg sdl.Color) (*sdl.Surface, error) {
 	ctext := C.CString(text)
-        ccolor := C.SDL_Color{C.Uint8(fg.R), C.Uint8(fg.G), C.Uint8(fg.B), C.Uint8(255)}
+	ccolor := C.SDL_Color{C.Uint8(fg.R), C.Uint8(fg.G), C.Uint8(fg.B), C.Uint8(255)}
 	s := C.TTF_RenderUTF8_Solid(f.c, ctext, ccolor)
 	if s == nil {
 		return nil, getError()
@@ -202,7 +202,7 @@ func OpenFont(file string, ptsize int) (*Font, error) {
 	return &Font{c: font}, nil
 }
 
-func OpenFontIndex(file string, ptsize int, index int64)  (*Font, error) {
+func OpenFontIndex(file string, ptsize int, index int64) (*Font, error) {
 	cfile := C.CString(file)
 	defer C.free(unsafe.Pointer(cfile))
 	font := C.TTF_OpenFontIndex(cfile, C.int(ptsize), C.long(index))
