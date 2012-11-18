@@ -1,3 +1,5 @@
+Forked from: https://github.com/DeedleFake/sdl
+
 Go Bindings for SDL 2
 =====================
 
@@ -24,7 +26,7 @@ _Note: This is not yet finished. It is capable of loading and displaying images 
 Prerequisites
 -------------
 
- * [SDL][sdl] 2 (Hasn't been officially released yet as of 2012-08-02.)
+ * [SDL][sdl] 2 (Hasn't been officially released yet as of 2012-11-18)
  * [Go][golang]
 
 Installation
@@ -33,7 +35,7 @@ Installation
  1. Set up your [GOPATH](http://golang.org/cmd/go/#GOPATH_environment_variable).
  2. Run the following command:
 
-> go get github.com/DeedleFake/sdl
+> go get github.com/willemvds/sdl
 
 [golang]: http://www.golang.org
 [sdl]: http://www.libsdl.org
